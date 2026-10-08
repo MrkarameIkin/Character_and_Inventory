@@ -88,15 +88,15 @@ int main()
 
     std::cout << "Введите имя: ";
     std::getline(std::cin, buffer);
-    player.getName(buffer);
+    player.setName(buffer);
 
     std::cout << "Введите здоровье (до 100): ";
     std::getline(std::cin, buffer);
-    player.getHealth(std::stoi(buffer));
+    player.setHealth(std::stoi(buffer));
 
     std::cout << "Введите золото: ";
     std::getline(std::cin, buffer);
-    player.getGold(std::stoi(buffer));
+    player.setGold(std::stoi(buffer));
 
     player.printInfo();
 
