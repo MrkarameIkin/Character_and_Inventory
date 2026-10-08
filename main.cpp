@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+#include <vector>
 
 
 class Item {
@@ -23,13 +25,13 @@ class Character {
     int health, gold;
 
 public:
-    void getName(std::string n = "Unknow") {name = n;}
-    void getHealth(int h = 1) {
+    void setName(std::string n = "Unknow") {name = n;}
+    void setHealth(int h = 1) {
         if(h >= MAX_HEALTH) health = MAX_HEALTH;
         else if(h > 0) health = h;
         else health = 1;
     }
-    void getGold(int g = 0) {
+    void setGold(int g = 0) {
         if(g > 0) gold = g;
         else gold = 0;
     }
@@ -58,6 +60,7 @@ public:
 
     void addItem(std::string iName = "Unknow item", int iPrice = 0) {
         Item i;
+        
         if(iPrice >= 0) {
             i.addParameters(iName, iPrice);
             inventory.push_back(i);
@@ -68,7 +71,7 @@ public:
         }
     }
 
-    void removeItem() {inventory.pop_back();}
+    void removeItem() {if(!inventory.empty()) inventory.pop_back();}
 
     void showInventory() {
         std::cout << "\nВаш инвентарь:";
